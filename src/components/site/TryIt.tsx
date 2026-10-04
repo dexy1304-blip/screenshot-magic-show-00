@@ -2,6 +2,7 @@ import { useState } from "react";
 import { fallbackPredict, type FallbackInput } from "@/lib/fallback";
 
 const CATS = ["cooked_meal", "bakery", "dairy", "fruits_veg", "packaged", "raw_ingredients", "beverages", "sweets", "mixed_leftovers"];
+const BAR = { DONATE: "bg-donate", REDISTRIBUTE: "bg-redistribute", UPCYCLE: "bg-upcycle" } as const;
 
 export function TryIt() {
   const [f, setF] = useState<FallbackInput>({ category: "cooked_meal", quantityKg: 25, hoursToExpiry: 3, storage: "hot_held", servedBefore: false });
@@ -63,7 +64,7 @@ export function TryIt() {
               {(["DONATE", "REDISTRIBUTE", "UPCYCLE"] as const).map((a) => (
                 <li key={a} className="grid grid-cols-[7.5rem_1fr_3rem] items-center gap-2 text-sm">
                   <span>{a}</span>
-                  <span className="h-2 rounded bg-muted"><span className={`block h-2 rounded bg-${a.toLowerCase()}`} style={{ width: `${res.probs[a] * 100}%`, transition: "width .3s" }} /></span>
+                  <span className="h-2 rounded bg-muted"><span className={`block h-2 rounded ${BAR[a]}`} style={{ width: `${res.probs[a] * 100}%`, transition: "width .3s" }} /></span>
                   <span className="mono text-right">{Math.round(res.probs[a] * 100)}%</span>
                 </li>
               ))}
