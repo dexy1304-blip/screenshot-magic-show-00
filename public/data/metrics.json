@@ -1,0 +1,16 @@
+{
+  "_comment": "Schema only. Fill by running `make train` (python -m ml.train) and copying ml/artifacts/<version>/metrics.json here. Never hand-edit values.",
+  "version": null,
+  "trained_at": null,
+  "dataset_hash": null,
+  "seeds": [42, 7, 13, 21, 99],
+  "layers": ["L1_test", "L2_expert"],
+  "models": [],
+  "_model_entry_shape": {
+    "name": "XGBoost",
+    "L1_test": { "accuracy": { "mean": 0, "std": 0 }, "f1_macro": { "mean": 0, "std": 0 }, "precision_macro": { "mean": 0, "std": 0 }, "recall_macro": { "mean": 0, "std": 0 }, "roc_auc_ovr_macro": { "mean": 0, "std": 0 }, "safety_critical_error_rate": 0 },
+    "L2_expert": "same shape as L1_test"
+  },
+  "winner": null,
+  "selection_rationale": null
+}
